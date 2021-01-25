@@ -1,0 +1,5 @@
+fastapi~=0.63.0
+pydantic~=1.6.1
+uvicorn
+alembic
+email_validator
