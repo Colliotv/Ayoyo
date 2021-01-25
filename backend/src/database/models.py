@@ -3,6 +3,7 @@ from .connection import Base
 
 
 class User(Base):
+    """ Contain basic information for a User """
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)

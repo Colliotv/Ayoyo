@@ -16,6 +16,8 @@ from src.models.user_information import (
 
 
 class UserManagement:
+    """ This class handle all interaction with the User table """
+
     def __init__(self, session: Session = Depends(get_session)):
         self.session = session
 
@@ -24,6 +26,7 @@ class UserManagement:
             login: str,
             password: str,
     ):
+        """ Used to validate a login/password pair and get back a User object """
         try:
             db_user: models.User = (
                 self.session.query(models.User)
@@ -38,6 +41,7 @@ class UserManagement:
             return db_user
 
     def get_user_by_id(self, user_id: int):
+        """ Get a user object by its internal db reference. """
         try:
             db_user: models.User = (
                 self.session.query(models.User)
@@ -50,6 +54,7 @@ class UserManagement:
             return db_user
 
     def create_user(self, user: User) -> User:
+        """ Insert a new User in the local db. """
         try:
             db_user = models.User(
                 **user.dict()
@@ -64,6 +69,7 @@ class UserManagement:
     def update_contact_informations(
             self, user_id: int, contact_information: ContactInformationUpdate
     ):
+        """ Update a user with the information stored in the Contact Information update object """
         try:
             db_user: models.User = (
                 self.session.query(models.User)
