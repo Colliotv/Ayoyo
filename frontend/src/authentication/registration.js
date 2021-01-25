@@ -49,13 +49,7 @@ class RegistrationPanel extends React.Component {
                                 break;
                         }
                     }
-                ).then(
-                    (data) => {
-                        console.log(data) //token
-                        this.props.onSuccessfulLogin(data)
-                    }
                 )
-    
         }
     }
 
